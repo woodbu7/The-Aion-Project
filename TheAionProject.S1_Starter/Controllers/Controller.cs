@@ -141,6 +141,7 @@ namespace TheAionProject
             _gameTraveler.HomePlanet = traveler.HomePlanet;
             _gameTraveler.SpaceTimeLocationID = 1;
             _gameTraveler.WeaponOfChoice = traveler.WeaponOfChoice;
+            _gameTraveler.IsExperienced = traveler.IsExperienced;
         }
 
         #endregion

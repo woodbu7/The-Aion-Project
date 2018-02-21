@@ -27,7 +27,7 @@ namespace TheAionProject
         #region FIELDS
 
         private string _homePlanet;
-        private bool _isFunny;
+        private bool _isExperienced;
         private Weapon _weaponOfChoice;
 
         #endregion
@@ -41,10 +41,10 @@ namespace TheAionProject
             set { _homePlanet = value; }
         }
 
-        public bool IsFunny
+        public bool IsExperienced
         {
-            get { return _isFunny; }
-            set { _isFunny = value; }
+            get { return _isExperienced; }
+            set { _isExperienced = value; }
         }
 
         public Weapon WeaponOfChoice
@@ -64,7 +64,7 @@ namespace TheAionProject
 
         }
 
-        public Traveler(string name, RaceType race, int spaceTimeLocationID) : base(name, race, spaceTimeLocationID)
+        public Traveler(string name, RaceType race, int spaceTimeLocationID, bool isExperienced) : base(name, race, spaceTimeLocationID)
         {
 
         }
@@ -77,6 +77,11 @@ namespace TheAionProject
         public override string Greeting()
         {
             return $"Hello, my name is {base.Name}, I am a {base.Race}, and I am from {_homePlanet}.";
+        }
+
+        public override string DefenseResponse()
+        {
+            return $"I am a {base.Race}! I will defeat you!";
         }
 
         #endregion

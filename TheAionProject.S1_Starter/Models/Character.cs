@@ -83,6 +83,11 @@ namespace TheAionProject
             return $"Hello, my name is {_name} and I am a {_race}";
         }
 
+        public virtual string DefenseResponse()
+        {
+            return "Please, don't hurt me";
+        }
+
         #endregion
     }
 }

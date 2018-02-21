@@ -113,6 +113,31 @@ namespace TheAionProject
             return Console.ReadLine();
         }
 
+        public string GetYesOrNo()
+        {
+            bool validResponse = false;
+            string userResponse = "";
+            
+            while (!validResponse)
+            {
+                userResponse = Console.ReadLine().ToUpper();
+
+                if (userResponse == "YES" || userResponse == "NO")
+                {
+                    validResponse = true;
+                }
+                else
+                {
+                    ClearInputBox();
+                    DisplayInputErrorMessage("You must enter yes or no. Please try again.");
+                    DisplayInputBoxPrompt("Enter yes or no: ");
+                }
+            }
+
+            return userResponse;
+
+        }
+
         /// <summary>
         /// get an integer value from the user
         /// </summary>
@@ -482,6 +507,21 @@ namespace TheAionProject
             DisplayGamePlayScreen("Mission Initialization - Weapon", Text.InitializeMissionGetWeaponOfChoice(traveler), ActionMenu.MissionIntro, "");
             DisplayInputBoxPrompt("Enter your weapon of choice: ");
             traveler.WeaponOfChoice = GetWeapon();
+
+            //
+            // get the traveler's experience level
+            //
+            DisplayGamePlayScreen("Mission Initialization - Experience Level", Text.InitializeMissionGetTravelerExperienceLevel(traveler.Name), ActionMenu.MissionIntro, "");
+            DisplayInputBoxPrompt("Enter yes or no: ");
+            string userResponse = GetYesOrNo();
+            if (userResponse == "NO")
+            {
+                traveler.IsExperienced = true;
+            }
+            else
+            {
+                traveler.IsExperienced = false;
+            }
 
             //
             // echo the traveler's info

@@ -146,6 +146,18 @@ namespace TheAionProject
 
         }
 
+        public static string InitializeMissionGetTravelerExperienceLevel(string name)
+        {
+            string messageBoxText =
+                $"{name}, we need to know if you have any experience. \n" +
+                " \n" +
+                "Is this your first mission? \n" +
+                " \n" +
+                "Please answer yes or no.";
+
+            return messageBoxText;
+        }
+
         public static string InitializeMissionEchoTravelerInfo(Traveler gameTraveler)
         {
             string messageBoxText =
@@ -159,6 +171,7 @@ namespace TheAionProject
                 $"\tTraveler Race: {gameTraveler.Race}\n" +
                 $"\tTraveler Home Planet: {gameTraveler.HomePlanet}\n" +
                 $"\tTraveler Weapon of Chocie: {gameTraveler.WeaponOfChoice}\n" +
+                $"\tTraveler is experienced:{gameTraveler.IsExperienced}\n" +
                 " \n" +
                 "Press any key to begin your mission.";
 
@@ -172,7 +185,7 @@ namespace TheAionProject
         #region MAIN MENU ACTION SCREENS
 
         public static string TravelerInfo(Traveler gameTraveler)
-        {
+        {       
             string messageBoxText =
                 $"\tTraveler Name: {gameTraveler.Name}\n" +
                 $"\tTraveler Age: {gameTraveler.Age}\n" +
@@ -180,6 +193,7 @@ namespace TheAionProject
                 $"\tTraveler Home Planet: {gameTraveler.HomePlanet}\n" +
                 $"\tTraveler Weapon of Choice: {gameTraveler.WeaponOfChoice}\n" +
                 $"\tTraveler Greeting: {gameTraveler.Greeting()}\n" +
+                $"\tTraveler is experienced:{gameTraveler.IsExperienced}\n" +
                 " \n";
 
             return messageBoxText;
